@@ -1,12 +1,15 @@
 package com.yunji.dmaker.controller;
 
+import com.yunji.dmaker.dto.CreateDeveloper;
 import com.yunji.dmaker.service.DMakerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,11 +37,11 @@ public class DMakerController {
     }
 
     @PostMapping("/developers")
-    public String createDeveloper(){
+    public String createDeveloper(@Valid @RequestBody CreateDeveloper.Request request){
         //POST
         log.info("POST /developers HTTP/1.1");
-        dMakerService.createDeveloper();
+        log.info("request : {}", request);
+        dMakerService.createDeveloper(request);
         return "tt";
     }
-
 }

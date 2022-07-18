@@ -1,5 +1,6 @@
 package com.yunji.dmaker.service;
 
+import com.yunji.dmaker.dto.CreateDeveloper;
 import com.yunji.dmaker.entity.Developer;
 import com.yunji.dmaker.repository.DeveloperRepository;
 import com.yunji.dmaker.type.DeveloperLevel;
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.validation.Valid;
 
 /**
  * description
@@ -24,7 +26,7 @@ public class DMakerService {
     private final EntityManager em;
 
     @Transactional
-    public void createDeveloper(){
+    public void createDeveloper(CreateDeveloper.Request request) {
         Developer developer = Developer.builder()
                 .developerLevel(DeveloperLevel.JUNIOR)
                 .developerSkillType(DeveloperSkillType.FRONT_END)
@@ -37,9 +39,9 @@ public class DMakerService {
     }
 
     // transaction 관련 동작
-    public void transactionTest(){
+    public void transactionTest() {
         EntityTransaction transaction = em.getTransaction();
-        try{
+        try {
             transaction.begin();
             //비지니스 로직 시작
             // A -> B 1만원 송금
@@ -47,7 +49,7 @@ public class DMakerService {
             // B 계좌에서 1 만원 늘림
             //비지니스 로직 종료
             transaction.commit();
-        }catch(Exception e){
+        } catch (Exception e) {
             transaction.rollback();
             throw e;
         }
