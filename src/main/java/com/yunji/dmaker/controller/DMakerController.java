@@ -1,16 +1,15 @@
 package com.yunji.dmaker.controller;
 
 import com.yunji.dmaker.dto.CreateDeveloper;
+import com.yunji.dmaker.dto.DeveloperDetailDto;
+import com.yunji.dmaker.dto.DeveloperDto;
+import com.yunji.dmaker.dto.EditDeveloper;
 import com.yunji.dmaker.service.DMakerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -30,10 +29,23 @@ public class DMakerController {
     // =========================== spring context ==================================
 
     @GetMapping("/developers")
-    public List<String> getAllDevelopers() {
+    public List<DeveloperDto> getAllDevelopers() {
         //GET
         log.info("GET /developers HTTP/1.1");
-        return Arrays.asList("yunji", "jimin");
+        return dMakerService.getAllDevelopers();
+    }
+
+    @GetMapping("/developers/{memberId}")
+    public DeveloperDetailDto getDeveloperDetail(@PathVariable String memberId){
+        return dMakerService.getDeveloperDetail(memberId);
+    }
+
+
+    @PutMapping("/developers/{memberId}")
+    public DeveloperDetailDto editDeveloper(@PathVariable String memberId,
+                                            @Valid @RequestBody EditDeveloper.Request request
+    ){
+        return dMakerService.editDeveloper(memberId, request);
     }
 
     @PostMapping("/developers")
