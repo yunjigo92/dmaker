@@ -37,11 +37,11 @@ public class DMakerController {
     }
 
     @PostMapping("/developers")
-    public String createDeveloper(@Valid @RequestBody CreateDeveloper.Request request){
+    public CreateDeveloper.Response createDeveloper(@Valid @RequestBody CreateDeveloper.Request request){
         //POST
         log.info("POST /developers HTTP/1.1");
         log.info("request : {}", request);
-        dMakerService.createDeveloper(request);
-        return "tt";
+
+        return dMakerService.createDeveloper(request);
     }
 }

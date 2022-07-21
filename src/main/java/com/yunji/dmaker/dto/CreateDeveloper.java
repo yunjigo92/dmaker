@@ -1,5 +1,6 @@
 package com.yunji.dmaker.dto;
 
+import com.yunji.dmaker.entity.Developer;
 import com.yunji.dmaker.type.DeveloperLevel;
 import com.yunji.dmaker.type.DeveloperSkillType;
 import lombok.*;
@@ -16,6 +17,8 @@ import javax.validation.constraints.Size;
  * date           : 22. 7. 18.
  */
 public class CreateDeveloper {
+
+
     @Getter
     @Setter
     @AllArgsConstructor
@@ -43,4 +46,28 @@ public class CreateDeveloper {
         private String name;
         private Integer age;
     }
+
+
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @Builder
+    public static class Response {
+        private DeveloperLevel developerLevel;
+        private DeveloperSkillType developerSkillType;
+        private Integer experienceYears;
+        private String memberId;
+
+        public static Response fromEntity(Developer developer){
+            return Response.builder()
+                    .developerLevel(developer.getDeveloperLevel())
+                    .developerSkillType(developer.getDeveloperSkillType())
+                    .experienceYears(developer.getExperienceYears())
+                    .memberId(developer.getMemberId())
+                    .build();
+        }
+
+    }
+
 }
