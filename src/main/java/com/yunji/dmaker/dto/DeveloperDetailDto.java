@@ -1,12 +1,10 @@
 package com.yunji.dmaker.dto;
 
+import com.yunji.dmaker.code.StatusCode;
 import com.yunji.dmaker.entity.Developer;
 import com.yunji.dmaker.type.DeveloperLevel;
 import com.yunji.dmaker.type.DeveloperSkillType;
 import lombok.*;
-
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 
 /**
  * description
@@ -26,6 +24,7 @@ public class DeveloperDetailDto {
     private String memberId;
     private String name;
     private Integer age;
+    private StatusCode statusCode;
 
     public static DeveloperDetailDto fromEntity(Developer developer){
         return DeveloperDetailDto.builder()
@@ -35,6 +34,7 @@ public class DeveloperDetailDto {
                 .memberId(developer.getMemberId())
                 .name(developer.getName())
                 .age(developer.getAge())
+                .statusCode(developer.getStatusCode())
                 .build();
     }
 }

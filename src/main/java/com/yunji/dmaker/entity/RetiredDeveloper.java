@@ -1,8 +1,5 @@
 package com.yunji.dmaker.entity;
 
-import com.yunji.dmaker.code.StatusCode;
-import com.yunji.dmaker.type.DeveloperLevel;
-import com.yunji.dmaker.type.DeveloperSkillType;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -24,26 +21,14 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-public class Developer {
+public class RetiredDeveloper {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
-    @Enumerated(EnumType.STRING)
-    private DeveloperLevel developerLevel;
-
-    @Enumerated(EnumType.STRING)
-    private DeveloperSkillType developerSkillType;
-
-    @Enumerated(EnumType.STRING)
-    private StatusCode statusCode;
-
-
-    private Integer experienceYears;
     private String memberId;
     private String name;
-    private Integer age;
 
     @CreatedDate
     private LocalDateTime createdAt;

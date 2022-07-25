@@ -65,6 +65,7 @@ public class CreateDeveloper {
                     .developerSkillType(developer.getDeveloperSkillType())
                     .experienceYears(developer.getExperienceYears())
                     .memberId(developer.getMemberId())
+
                     .build();
         }
 

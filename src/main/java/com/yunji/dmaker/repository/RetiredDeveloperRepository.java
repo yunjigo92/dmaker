@@ -1,11 +1,10 @@
 package com.yunji.dmaker.repository;
 
-import com.yunji.dmaker.code.StatusCode;
 import com.yunji.dmaker.entity.Developer;
+import com.yunji.dmaker.entity.RetiredDeveloper;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -15,10 +14,5 @@ import java.util.Optional;
  * date           : 22. 7. 18.
  */
 @Repository
-public interface DeveloperRepository extends JpaRepository<Developer,Long> {
-
-    Optional<Developer> findByMemberId(String memberId);
-
-    List<Developer> findDevelopersByStatusCodeEquals(StatusCode statusCode);
-
+public interface RetiredDeveloperRepository extends JpaRepository<RetiredDeveloper,Long> {
 }
