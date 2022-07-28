@@ -16,6 +16,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString
 public class DeveloperDto {
     private DeveloperLevel developerLevel;
     private DeveloperSkillType developerSkillType;
@@ -28,4 +29,6 @@ public class DeveloperDto {
                 .memberId(developer.getMemberId())
                 .build();
     }
+
+
 }
