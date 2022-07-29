@@ -12,6 +12,7 @@ import com.yunji.dmaker.exception.DMakerException;
 import com.yunji.dmaker.repository.DeveloperRepository;
 import com.yunji.dmaker.repository.RetiredDeveloperRepository;
 import com.yunji.dmaker.type.DeveloperLevel;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,7 +36,7 @@ public class DMakerService {
     private final EntityManager em;
 
     @Transactional
-    public CreateDeveloper.Response createDeveloper(CreateDeveloper.Request request) {
+    public CreateDeveloper.Response createDeveloper(@NonNull CreateDeveloper.Request request) {
 
         validateCreateDeveloperRequest(request);
 
@@ -55,7 +56,7 @@ public class DMakerService {
 
     }
 
-    private void validateCreateDeveloperRequest(CreateDeveloper.Request request) {
+    private void validateCreateDeveloperRequest(@NonNull CreateDeveloper.Request request) {
         //business validation
         validateDeveloper(request.getDeveloperLevel(), request.getExperienceYears());
 
