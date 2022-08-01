@@ -68,17 +68,10 @@ public class DMakerService {
     }
 
     private void validateDeveloper(DeveloperLevel developerLevel, Integer experienceYears) {
-        if(developerLevel == DeveloperLevel.SENIOR &&
-                experienceYears < MIN_SENIOR_EXPERIENCE_YEARS){
-            throw new DMakerException(DMakerErrorCode.LEVEL_EXPERIENCE_YEARS_NOT_MATCHED);
-        }
-
-        if(developerLevel == DeveloperLevel.JUNGNIOR && (experienceYears < MIN_SENIOR_EXPERIENCE_YEARS || experienceYears > MAX_SENIOR_EXPERIENCE_YEARS) ){
-            throw new DMakerException(DMakerErrorCode.LEVEL_EXPERIENCE_YEARS_NOT_MATCHED);
-        }
-
-        if(developerLevel == DeveloperLevel.JUNIOR && experienceYears > MIN_SENIOR_EXPERIENCE_YEARS){
-            throw new DMakerException(DMakerErrorCode.LEVEL_EXPERIENCE_YEARS_NOT_MATCHED);
+        if(experienceYears  >  developerLevel.getMaxExperienceYears()
+            || experienceYears < developerLevel.getMinExperienceYears()
+        ){
+            //샬라샬라
         }
     }
 

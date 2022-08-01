@@ -12,10 +12,12 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum DeveloperLevel {
-    NEW("신입 개발자"),
-    JUNIOR("주니어 개발자"),
-    JUNGNIOR("중니어 개발자"),
-    SENIOR("시니어 개발자");
+    NEW("신입 개발자",0,0),
+    JUNIOR("주니어 개발자",1,10),
+    JUNGNIOR("중니어 개발자",10,20),
+    SENIOR("시니어 개발자",20,30);
 
     private final String description;
+    private final Integer minExperienceYears;
+    private final Integer maxExperienceYears;
 }
