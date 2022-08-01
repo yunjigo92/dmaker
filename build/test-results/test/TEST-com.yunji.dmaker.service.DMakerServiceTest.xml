@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.yunji.dmaker.service.DMakerServiceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-07-29T02:26:17" hostname="yunji" time="0.199">
+<testsuite name="com.yunji.dmaker.service.DMakerServiceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-08-01T01:56:32" hostname="yunji" time="0.233">
   <properties/>
-  <testcase name="createDeveloperTest_failed_with_duplicated()" classname="com.yunji.dmaker.service.DMakerServiceTest" time="0.157"/>
-  <testcase name="createDeveloper()" classname="com.yunji.dmaker.service.DMakerServiceTest" time="0.005"/>
+  <testcase name="createDeveloperTest_failed_with_duplicated()" classname="com.yunji.dmaker.service.DMakerServiceTest" time="0.203"/>
+  <testcase name="createDeveloper()" classname="com.yunji.dmaker.service.DMakerServiceTest" time="0.002"/>
   <testcase name="getDeveloperDetail()" classname="com.yunji.dmaker.service.DMakerServiceTest" time="0.005"/>
-  <testcase name="getAllEmployedDevelopers()" classname="com.yunji.dmaker.service.DMakerServiceTest" time="0.005"/>
-  <testcase name="createDeveloperTest_success()" classname="com.yunji.dmaker.service.DMakerServiceTest" time="0.018"/>
-  <testcase name="transactionTest()" classname="com.yunji.dmaker.service.DMakerServiceTest" time="0.001"/>
+  <testcase name="getAllEmployedDevelopers()" classname="com.yunji.dmaker.service.DMakerServiceTest" time="0.001"/>
+  <testcase name="createDeveloperTest_success()" classname="com.yunji.dmaker.service.DMakerServiceTest" time="0.013"/>
+  <testcase name="transactionTest()" classname="com.yunji.dmaker.service.DMakerServiceTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
